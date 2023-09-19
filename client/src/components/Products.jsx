@@ -21,8 +21,8 @@ export default function Products({ cat, filters, sort }) {
       try {
         const res = await axios.get(
           cat
-            ? `https://slayturn.vercel.app/products?category=${cat}`
-            : "https://slayturn.vercel.app/products"
+            ? `https://slayturn-server.vercel.app/products?category=${cat}`
+            : "https://slayturn-server.vercel.app/products"
         );
         setProducts(res.data);
       } catch (err) {}
