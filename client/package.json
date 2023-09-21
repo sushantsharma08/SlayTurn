@@ -22,7 +22,12 @@
     "react-stripe-checkout": "^2.6.3",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.3",
+<<<<<<< HEAD
     "web-vitals": "^1.0.1"
+=======
+    "web-vitals": "^1.0.1",
+    "react-stripe-checkout": "^2.6.3"
+>>>>>>> a79679896d3257e7a8f038f0d7075ea26bae6786
   },
   "scripts": {
     "start": "react-scripts start",
