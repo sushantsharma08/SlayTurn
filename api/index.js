@@ -30,8 +30,8 @@ mongoose
  
 // app.use(cors(
 //     {
-//         origin: ["https://slayturn-server.vercel.app/"],
-//         methods: ["POST","GET"],
+//         origin: ["https://slayturn-api.onrender.com"],
+//         methods: ["GET","POST"],
 //         credentials: true
 //     }
 

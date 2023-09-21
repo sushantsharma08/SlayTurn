@@ -20,9 +20,13 @@ export default function Products({ cat, filters, sort }) {
     const getProducts = async () => {
       try {
         const res = await axios.get(
+        //   cat
+        //     ? `http://localhost:5000/api/products?category=${cat}`
+        //     : `http://localhost:5000/api/products`
+        // );
           cat
-            ? `http://localhost:5000/api/products?category=${cat}`
-            : `http://localhost:5000/api/products`
+            ? `https://slayturn-api.onrender.com//api/products?category=${cat}`
+            : `https://slayturn-api.onrender.com/api/products`
         );
         setProducts(res.data);
       } catch (err) {}
