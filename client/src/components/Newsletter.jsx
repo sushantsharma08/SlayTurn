@@ -55,7 +55,7 @@ export default function Newsletter() {
             <Input placeholder="Your email" />
             <Button>
                 <Send/>
-            </Button>
+            </Button >
         </InputContainer>
     </Container>
   )
