@@ -3,8 +3,9 @@ import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
 import Slider from '../components/Slider'
 import Catagories from '../components/Catagories'
+import NewsLetter from '../components/Newsletter'
 import Products from '../components/Products'
-import Newsletter from '../components/NewsLetter'
+
 import Footer from '../components/Footer'
 
 
@@ -16,7 +17,7 @@ export default function Home() {
         <Slider />
         <Catagories/>
         <Products />
-        <Newsletter/>
+        <NewsLetter />
         <Footer/>
     </div>
   )
