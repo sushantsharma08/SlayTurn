@@ -79,7 +79,7 @@ export default function Footer() {
   return (
     <Container>
         <Left>
-            <Logo>SlayTurn</Logo>
+            <Logo>Slayturn</Logo>
             <Desc>
                 A Stark Industries Product.<br/>
                 The Stark industries brings you the finest of all products, A legacy of Tony Stark
