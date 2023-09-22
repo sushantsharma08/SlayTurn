@@ -52,20 +52,17 @@ For Deployment, we have used `vercel` and `render` as a platform.
 **Requirements:** Pre-installed `VS code` with `Node js`.
 
 Steps to setup and run our project locally on your machine
-1. Install git on your machine if not installed already <br>
-2. Clone the repository <br>
-| Front-end|
-`git clone   https://github.com/golemvincible/SlayTurn/tree/7da8f8faade6440b53420afcf87a156a16752ed4/client`
->
-| Back-end|
-`git clone   https://github.com/golemvincible/SlayTurn/tree/7da8f8faade6440b53420afcf87a156a16752ed4/api`
+1. Install git on your machine if not installed already
+2. Clone the repository 
+`git clone https://github.com/golemvincible/SlayTurn.git`
+
 3. Go inside the cloned directory on the terminal.
-4. Install the required packages by command <br>
+4. Install the required packages by command 
 `npm install`
->
-5. Start local-server by command <br>
+
+5. Start local-server by command 
 `npm start`
->
-6. Enter the following link in browser, and it will should open the Front-end Page. <br>    http://localhost:3000
-><br>
-7. Backend Page - http://localhost:8000 .
+
+6. Enter the following link in browser, and it will should open the Front-end Page.
+   http://localhost:3000
+7. Backend Page - http://localhost:8000
