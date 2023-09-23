@@ -139,10 +139,10 @@ export default function Navbar() {
                  */}
                  {user.currentUser === null ? (
             <>
-              <Link href="/login">
+              <Link href="/Login">
                 <MenuItem>SIGN IN</MenuItem>
               </Link>
-              <Link href="/register">
+              <Link href="/Register">
                 <MenuItem>SIGN UP</MenuItem>
               </Link>
             </>
@@ -152,7 +152,7 @@ export default function Navbar() {
               <MenuItem onClick={handleLogOut}>LOG OUT</MenuItem>
             </>
           )}
-                <Link href="/cart">
+                <Link href="/Cart">
  
                     <MenuItem>
 

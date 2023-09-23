@@ -119,16 +119,16 @@ export default function Footer() {
                     <Link href="/">HOME</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/products">PRODUCTS</Link>
+                    <Link href="/Products">PRODUCTS</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/register">REGISTER</Link>
+                    <Link href="/Register">REGISTER</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/login">LOGIN</Link>
+                    <Link href="/Login">LOGIN</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/cart">CART</Link>
+                    <Link href="/Cart">CART</Link>
                 </ListItem>
             </List>
         </Center>
