@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
 import { mobile } from '../responsive'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     width: 100%;
@@ -93,7 +94,9 @@ export default function Slider() {
             {sliderItems.map((items)=>(
                 <Slide bg={items.bg} key={items.id}>
                     <ImgContainer>
-                        <Image src={items.img}/>
+                        <Link to="/products">
+                            <Image src={items.img} />
+                        </Link>
                     </ImgContainer>
                     <InfoContainer>
                         <Title>{items.title}</Title>

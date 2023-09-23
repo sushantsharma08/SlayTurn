@@ -15,28 +15,28 @@ export const sliderItems = [
     },
     {
       id: 3,
-      img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
+      img: "https://wallpapercave.com/wp/wp2838038.jpg",
+      title: "PEAKY COLLECTION",
+      desc: "DON'T BE OUTSIDER, BE A PEAKY BLINDER, 30% OFF FOR NEW ARRIVALS.",
+      bg: "f2f3f4  ",
     },
   ];
   export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      img: "https://images.unsplash.com/photo-1580986475043-66518bfc2a28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bG9uZyUyMGRyZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      title: "DRESS",
       cat:"women"
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
+      img: "https://images.unsplash.com/photo-1616150326910-6fdb1e30adb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvYXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      title: "WINTER IS COMING",
       cat:"suit"
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      img: "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8amFja2V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       title: "LIGHT JACKETS",
       cat:"summer"
     },

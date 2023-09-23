@@ -11,7 +11,9 @@ import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { Provider, useDispatch } from "react-redux";
 
-const Container = styled.div``;
+const Container = styled.div`
+  overflow: hidden;
+`;
 
 const Wrapper = styled.div`
   padding: 50px;
@@ -134,7 +136,7 @@ const Product = () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
-      } catch {}
+      } catch {err}{}
     };
     getProduct();
   }, [id]);
@@ -147,10 +149,71 @@ const Product = () => {
     }
   };
 
-  const handleClick = () => {
-    dispatch(
-      addProduct({ ...product, quantity, color, size })
-    );
+  // const handleClick = () => {
+  //   dispatch(
+  //     addProduct({ ...product, quantity, color, size })
+  //   );
+
+  /* =====TEST=====*/
+  const createCart = async () => {
+
+    const productData = {
+      userId:user.currentUser._id ,
+      Products: [
+        {
+          product: [
+            {
+              product_id: product._id,
+              img: product.img,
+              title: product.title,
+              size: "S",
+              color: "#C8AE95",
+              price: product.price,
+            },
+          ],
+          quantity: quantity,
+        },
+      ],
+    };
+
+    const TOKEN = `${user.currentUser.accessToken}`;
+   console.log(TOKEN);
+   try {
+      const res = await publicRequest.post(`/carts/`, productData, {
+        headers: { token: `Bearer ${TOKEN}` },
+      });
+    console.log(res);
+
+   } catch (err) {
+     console.log(err);
+   }
+   
+ }
+
+ const handleAddtoCart = async () => {
+   // update cart
+
+   if (user.currentUser === null) return;
+
+   console.log(color, size);
+
+   let temp = {
+     product_id: product._id,
+     img: product.img,
+     title: product.title,
+     size: "M",
+     color: "#C8AE95",
+     price: product.price,
+   };
+
+   dispatch(addProduct({ ...temp, quantity }));
+
+   if (cart.quantity === 0) {
+     createCart();
+     dispatch(initialItem(1));
+   }
+
+  /* =====    =====*/
   };
   return (
     <Container>
@@ -186,7 +249,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button onClick={handleClick}>ADD TO CART</Button>
+            <Button onClick={handleAddtoCart}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

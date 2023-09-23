@@ -75,16 +75,26 @@ const Payment = styled.img`
     width: 50%;
 
 `
+const Link = styled.a`
+  color: black;
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
+`
 export default function Footer() {
   return (
     <Container>
         <Left>
-            <Logo>Slayturn</Logo>
+            <Logo>
+                <Link href="/">SlayTurn</Link>
+            </Logo>
             <Desc>
                 A Stark Industries Product.<br/>
                 The Stark industries brings you the finest of all products, A legacy of Tony Stark
-                and team. Products are available on select stores that are franchises of Stark Industries
-                in select contries.
+                and team now maintained by Sourabh Kothari. Products are available on select stores that are franchises of Stark Industries
+                in select countries.
             </Desc>
             <SocialContainer>
                 <SocialIcon color="3B5999">
@@ -105,28 +115,33 @@ export default function Footer() {
         <Center>
             <Title>Useful links</Title>
             <List>
-                <ListItem>Home</ListItem>
-                <ListItem>Cart</ListItem>
-                <ListItem>Man Fashion</ListItem>
-                <ListItem>Woman Fashion</ListItem>
-                <ListItem>Accessories</ListItem>
-                <ListItem>My Account</ListItem>
-                <ListItem>Order Tracking</ListItem>
-                <ListItem>Wishlist</ListItem>
-                <ListItem>Wishlist</ListItem>
-                <ListItem>Terms</ListItem>
+                <ListItem>
+                    <Link href="/">HOME</Link>
+                </ListItem>
+                <ListItem>
+                    <Link href="/products">PRODUCTS</Link>
+                </ListItem>
+                <ListItem>
+                    <Link href="/register">REGISTER</Link>
+                </ListItem>
+                <ListItem>
+                    <Link href="/login">LOGIN</Link>
+                </ListItem>
+                <ListItem>
+                    <Link href="/cart">CART</Link>
+                </ListItem>
             </List>
         </Center>
         <Right>
             <Title>Contact</Title>
             <ContactItem>
-                <Room style={{marginRight:"10px"}}/> 798, Stark Industries, Long Island
+                <Room style={{marginRight:"10px"}}/> 120-K-1, Scheme No. 71, Sector A <br /> Indore, M.P.
             </ContactItem>
             <ContactItem>
                 <Phone style={{marginRight:"10px"}}/> +91 8109551792
             </ContactItem>
             <ContactItem>
-                <MailOutline style={{marginRight:"10px"}}/> slayturn.help@starkindustries.com
+                <MailOutline style={{marginRight:"10px"}}/> kotharisourabh06@gmail.com
             </ContactItem>
             <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>

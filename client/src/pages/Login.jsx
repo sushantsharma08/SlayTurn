@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import { mobile } from '../responsive'
 import { useDispatch, useSelector } from "react-redux";
 import { login } from '../redux/apiCalls';
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     width: 100vw;
@@ -12,7 +13,7 @@ const Container = styled.div`
         rgba(255, 255, 255, 0.5),
         rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/1127000/pexels-photo-1127000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+    url("https://th.bing.com/th/id/OIP.j_FsER7fdWpSNVBU34tl3QHaHa?pid=ImgDet&rs=1")
         center;
     background-size: cover;
     display: flex;
@@ -84,10 +85,24 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const { isFetching, error } = useSelector((state) => state.user);
+    const navigate = useNavigate();
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        login(dispatch, { username, password });
+    const handleLogin = async (e) => {
+      e.preventDefault();
+      
+      const data = login(dispatch, { username, password });
+      
+      data.then((result) => {
+        console.log(result); 
+        console.log("login");
+        if (result.status === 200) {
+        navigate("/");
+        }
+      }).catch((err) => {
+         console.log("problem");
+  
+        console.log(err);
+      });
     };
   return (
 
@@ -104,12 +119,12 @@ export default function Login() {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
-            LOGIN
+          <Button onClick={handleLogin} disabled={isFetching}>
+            LOG IN
           </Button>
           {error && <Error>Something went wrong...</Error>}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Link href = "/register">CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>

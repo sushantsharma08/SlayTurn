@@ -9,12 +9,13 @@ import { useSelector } from 'react-redux'
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router";
+import { emptyCart } from "../redux/cartRedux";
 
 const KEY = 'pk_test_51Nn3ejSIYmQACD5LLH3TZEb4ZccbPnZ3AyZly54VKdsOTwLT7J6dtvkTNqSrYh0ACcWc1n4sSUsOX8HQpfNTQcbl00zz2M4uxS'
 
 
 const Container = styled.div`
-
+    overflow: hidden;
 `
 const Wrapper = styled.div`
     padding: 20px;
@@ -51,7 +52,7 @@ const TopButton = styled.button`
    
 `
 const TopTexts = styled.div`
-
+    ${mobile({ display: "none" })}
 `
 
 const TopText = styled.span`
@@ -60,6 +61,7 @@ const TopText = styled.span`
         text-decoration: underline;
     }
     margin: 0px 10px;
+    
 `
 
 const Bottom = styled.div`
@@ -94,7 +96,7 @@ const Details = styled.div`
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-
+    padding: 20px;
 `
 const ProductName = styled.span``
 const ProductId = styled.span``
@@ -123,6 +125,8 @@ const ProductAmountContainer = styled.div`
 `
 const ProductAmount = styled.div`
     margin: 5px;
+    font-size: 24px;
+    font-weight: 200;
     ${mobile({
         margin:"5px 15px"
     })}
@@ -138,6 +142,7 @@ const Hr = styled.hr`
     background-color: #eee;
     border: none;
     height: 1px;
+    margin: 10px 0;
 `
 const Summary = styled.div`
     flex: 1;
@@ -145,7 +150,7 @@ const Summary = styled.div`
     border-radius: 10px;
     padding: 20px;
     height: 55vh;
-
+    
 
 `
 const SummaryTitle = styled.h1`
@@ -177,6 +182,17 @@ const Button = styled.button`
       background-color: rgb(10, 87, 87);
     }
 `
+const Link = styled.a`
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:visited {
+    color: black;
+  }
+`;
+
+
 export default function Cart() {
     const cart = useSelector((state) => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
@@ -184,6 +200,18 @@ export default function Cart() {
 
     const onToken = (token) => {
         setStripeToken(token);
+      };
+      const deleteCart = async () => {
+        dispatch(emptyCart());
+        const TOKEN = `${user.currentUser.accessToken}`;
+    
+        const response = await publicRequest.delete(
+          `/carts/${user.currentUser._id}`,
+          {
+            headers: { token: `Bearer ${TOKEN}` },
+          }
+        );
+        console.log(response);
       };
       useEffect(() => {
         const makeRequest = async () => {
@@ -207,51 +235,66 @@ export default function Cart() {
             <Wrapper>
                 <Title>Your Bag</Title>
                 <Top>
-                    <TopButton>Continue Shopping</TopButton>
+                <TopButton onClick={() => history(-1)}>CONTINUE SHOPPING </TopButton>{" "}
                     <TopTexts>
                         <TopText>Shopping Bag({cart.quantity})</TopText>
                         <TopText>Your Wishlist(0)</TopText>
                     </TopTexts>
-                    <TopButton type="filled">Checkout Now</TopButton>
+                    <TopButton type="filled">
+                        CHECKOUT NOW
+                    </TopButton>
                 </Top>
                 <Bottom>
                 <Info>
-            {cart.products.map((product) => (
+                    {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
-                  <Image src={product.img} />
+                  {/* <Image src={product.img} /> */}
+                  <Link href={`/product/${product._id}`}>
+                      <Image src={product.img}></Image>
+                    </Link>
                   <Details>
+
                     <ProductName>
-                      <b>Product:</b> {product.title}
+                        <Link href={`/product/${product._id}`}>
+                          <b>Product: </b>
+                          {product.title}
+                        </Link>
                     </ProductName>
+
                     <ProductId>
                       <b>ID:</b> {product._id}
                     </ProductId>
+
                     <ProductColor color={product.color} />
+                    
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
+                  
                   </Details>
                 </ProductDetail>
+                
                 <PriceDetail>
                   <ProductAmountContainer>
                     <Add />
                     <ProductAmount>{product.quantity}</ProductAmount>
                     <Remove />
+
                   </ProductAmountContainer>
                   <ProductPrice>
                     ₹ {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
               </Product>
-            ))}
+             ))}
             <Hr />
           </Info>
             <Summary>
                 <SummaryTitle>Order Summary</SummaryTitle>
                     <SummaryItem>
                         <SummaryItemText>Subtotal</SummaryItemText>
-                        <SummaryItemPrice>${cart.total}</SummaryItemPrice>
+                        <SummaryItemPrice>₹{cart.total}</SummaryItemPrice>
                     </SummaryItem>
                         <SummaryItem>
                         <SummaryItemText>Estimated Shipping</SummaryItemText>

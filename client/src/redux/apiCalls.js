@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, logOut } from "./userRedux";
 import { publicRequest } from "../requestMethods";
 
 export const login = async (dispatch, user) => {
@@ -9,4 +9,7 @@ export const login = async (dispatch, user) => {
   } catch (err) {
     dispatch(loginFailure());
   }
+}
+export const logProcess = (dispatch) => {
+  dispatch(logOut());
 };

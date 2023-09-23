@@ -3,8 +3,20 @@ import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 import {Search,ShoppingCartOutlined} from '@material-ui/icons'
 import { mobile } from '../responsive';
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logProcess } from "../redux/apiCalls";
+import { emptyCart } from "../redux/cartRedux";
+import { publicRequest } from "../requestMethods";
+
+
+const Link = styled.a`
+  color: black;
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
+`;
 const Container = styled.div`
     height: 60px;
     ${mobile({height:"50px" })}
@@ -68,7 +80,44 @@ const Language = styled.span`
 
 export default function Navbar() {
     const quantity = useSelector(state=>state.cart.quantity)
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+
+    const handleLogOut = () => {
+
+        handleLogOutData(cart.initial, cart.products, user);
+        dispatch(emptyCart());
+        logProcess(dispatch);
+      }
+
+      const handleLogOutData = async(initial,pro,user) =>{
+        let data = []
     
+        pro.forEach((element, index) => {
+          if (initial === 0) {
+            data = [
+              ...data,
+              {
+                 "product": [{
+                    "product_id":element.product_id,
+                    "img":element.img,
+                    "title":element.title,
+                    "size":"S",
+                    "color":"#C8AE95",
+                    "price":element.price,
+                }],
+                "quantity": element.quantity
+              },
+            ];
+          } else {
+            initial = initial - 1;
+          }
+        });
+        const TOKEN = `${user.currentUser.accessToken}`;
+        const res = await publicRequest.put(`/carts/${user.currentUser._id}`, data, {
+        headers: { token: `Bearer ${TOKEN}` },
+    });
+    }
   return (
     <Container>
         <Wrapper>
@@ -80,12 +129,30 @@ export default function Navbar() {
                 </SearchContainer>
             </Left>
             <Centre>
-                <Logo>SlayTurn</Logo>
+                <Logo>
+                    <Link href="/">SlayTurn</Link>
+                </Logo>
             </Centre>
             <Right>
-                <MenuItem>REGISTER</MenuItem>
+                {/* <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>
-                <Link to="/cart">
+                 */}
+                 {user.currentUser === null ? (
+            <>
+              <Link href="/login">
+                <MenuItem>SIGN IN</MenuItem>
+              </Link>
+              <Link href="/register">
+                <MenuItem>SIGN UP</MenuItem>
+              </Link>
+            </>
+          ) : (
+            <>
+              <MenuItem>{user.currentUser.username.toUpperCase()}</MenuItem>
+              <MenuItem onClick={handleLogOut}>LOG OUT</MenuItem>
+            </>
+          )}
+                <Link href="/cart">
 
                     <MenuItem>
 
