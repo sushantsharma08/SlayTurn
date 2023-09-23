@@ -7,16 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { logProcess } from "../redux/apiCalls";
 import { emptyCart } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
+import { Link } from 'react-router-dom'
 
 
-const Link = styled.a`
-  color: black;
-  text-decoration: none;
-
-  &:visited {
-    color: black;
-  }
-`;
 const Container = styled.div`
     height: 60px;
     ${mobile({height:"50px" })}
@@ -130,7 +123,7 @@ export default function Navbar() {
             </Left>
             <Centre>
                 <Logo>
-                    <Link href="/">SlayTurn</Link>
+                    <Link to="/">SlayTurn</Link>
                 </Logo>
             </Centre>
             <Right>
@@ -139,10 +132,10 @@ export default function Navbar() {
                  */}
                  {user.currentUser === null ? (
             <>
-              <Link href="/Login">
+              <Link to="/login">
                 <MenuItem>SIGN IN</MenuItem>
               </Link>
-              <Link href="/Register">
+              <Link to="/register">
                 <MenuItem>SIGN UP</MenuItem>
               </Link>
             </>
@@ -152,8 +145,8 @@ export default function Navbar() {
               <MenuItem onClick={handleLogOut}>LOG OUT</MenuItem>
             </>
           )}
-                <Link href="/Cart">
- 
+                <Link to="/cart">
+
                     <MenuItem>
 
                         <Badge badgeContent={quantity} color="primary">

@@ -2,6 +2,8 @@ import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } fro
 import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
+// import { Link } from `react-router-dom`
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -75,14 +77,14 @@ const Payment = styled.img`
     width: 50%;
 
 `
-const Link = styled.a`
-  color: black;
-  text-decoration: none;
+// const Link = styled.a`
+//   color: black;
+//   text-decoration: none;
 
-  &:visited {
-    color: black;
-  }
-`
+//   &:visited {
+//     color: black;
+//   }
+// `
 export default function Footer() {
   return (
     <Container>
@@ -114,21 +116,38 @@ export default function Footer() {
         </Left>
         <Center>
             <Title>Useful links</Title>
-            <List>
+            {/* <List>
                 <ListItem>
                     <Link href="/">HOME</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/Products">PRODUCTS</Link>
+                    <Link href="/products">PRODUCTS</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/Register">REGISTER</Link>
+                    <Link href="/register">REGISTER</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/Login">LOGIN</Link>
+                    <Link href="/login">LOGIN</Link>
                 </ListItem>
                 <ListItem>
-                    <Link href="/Cart">CART</Link>
+                    <Link href="/cart">CART</Link>
+                </ListItem>
+            </List> */}
+            <List>
+                <ListItem>
+                    <Link to="/">HOME</Link>
+                </ListItem>
+                <ListItem>
+                    <Link to="/products">PRODUCTS</Link>
+                </ListItem>
+                <ListItem>
+                    <Link to="/register">REGISTER</Link>
+                </ListItem>
+                <ListItem>
+                    <Link to="/login">LOGIN</Link>
+                </ListItem>
+                <ListItem>
+                    <Link to="/cart">CART</Link>
                 </ListItem>
             </List>
         </Center>
