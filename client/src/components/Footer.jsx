@@ -5,6 +5,12 @@ import { mobile } from '../responsive'
 // import { Link } from `react-router-dom`
 import { Link } from 'react-router-dom'
 
+const linkStyle = {
+    
+    textDecoration: "none",
+    color: 'black'
+    
+  };
 const Container = styled.div`
     display: flex;
     ${mobile({
@@ -90,7 +96,7 @@ export default function Footer() {
     <Container>
         <Left>
             <Logo>
-                <Link href="/">SlayTurn</Link>
+                <Link to="/" style={linkStyle}>SlayTurn</Link>
             </Logo>
             <Desc>
                 A Stark Industries Product.<br/>
@@ -135,19 +141,19 @@ export default function Footer() {
             </List> */}
             <List>
                 <ListItem>
-                    <Link to="/">HOME</Link>
+                    <Link to="/" style={linkStyle}>HOME</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/products">PRODUCTS</Link>
+                    <Link to="/products" style={linkStyle}>PRODUCTS</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/register">REGISTER</Link>
+                    <Link to="/register" style={linkStyle}>REGISTER</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/login">LOGIN</Link>
+                    <Link to="/login" style={linkStyle}>LOGIN</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/cart">CART</Link>
+                    <Link to="/cart" style={linkStyle}>CART</Link>
                 </ListItem>
             </List>
         </Center>

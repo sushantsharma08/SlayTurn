@@ -111,6 +111,12 @@ export default function Navbar() {
         headers: { token: `Bearer ${TOKEN}` },
     });
     }
+    const linkStyle = {
+    
+      textDecoration: "none",
+      color: 'black'
+      
+    };
   return (
     <Container>
         <Wrapper>
@@ -123,7 +129,7 @@ export default function Navbar() {
             </Left>
             <Centre>
                 <Logo>
-                    <Link to="/">SlayTurn</Link>
+                    <Link to="/" style={linkStyle}>SlayTurn</Link>
                 </Logo>
             </Centre>
             <Right>
@@ -132,10 +138,10 @@ export default function Navbar() {
                  */}
                  {user.currentUser === null ? (
             <>
-              <Link to="/login">
+              <Link to="/login" style={linkStyle}>
                 <MenuItem>SIGN IN</MenuItem>
               </Link>
-              <Link to="/register">
+              <Link to="/register" style={linkStyle}>
                 <MenuItem>SIGN UP</MenuItem>
               </Link>
             </>
@@ -145,7 +151,7 @@ export default function Navbar() {
               <MenuItem onClick={handleLogOut}>LOG OUT</MenuItem>
             </>
           )}
-                <Link to="/cart">
+                <Link to="/cart" style={linkStyle}>
 
                     <MenuItem>
 
