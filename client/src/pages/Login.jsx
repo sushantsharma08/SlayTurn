@@ -5,6 +5,8 @@ import { mobile } from '../responsive'
 import { useDispatch, useSelector } from "react-redux";
 import { login } from '../redux/apiCalls';
 import { useNavigate } from "react-router-dom";
+import NavbarLessPopulated from '../components/NavbarLessPopulated';
+import Announcement from '../components/Announcement';
 
 const Container = styled.div`
     width: 100vw;
@@ -108,6 +110,8 @@ export default function Login() {
 
     <Container>
       <Wrapper>
+      <NavbarLessPopulated />
+      
         <Title>SIGN IN</Title>
         <Form>
           <Input

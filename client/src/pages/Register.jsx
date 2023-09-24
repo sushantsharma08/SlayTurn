@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 import { publicRequest } from "../requestMethods";
+import NavbarLessPopulated from '../components/NavbarLessPopulated';
 // const CryptoJS = require("crypto-js");
 
 const Container = styled.div`
@@ -94,6 +95,7 @@ export default function Register() {
   return (
     <Container>
         <Wrapper>
+                <NavbarLessPopulated/>
                 <Title>CREATE AN ACCOUNT</Title>
                 <Form id="login-form" onSubmit={(e) => handleSubmit(e)}>
                     <Input id="1" placeholder="name" required="true" onChange={(e) => setFirstname(e.target.value)}></Input>
@@ -120,9 +122,9 @@ export default function Register() {
                         required="true"
                         onChange={(e) => setC_password(e.target.value)}
                     ></Input>
-                    <Agreement>
+                    {/* <Agreement>
                         By creating an account I agree to the terms and conditions .
-                    </Agreement>
+                    </Agreement> */}
                     <Button onClick={handleSubmit}>CREATE</Button>
                     </Form>
                 
