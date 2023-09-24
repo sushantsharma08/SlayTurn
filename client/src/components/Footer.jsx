@@ -101,10 +101,12 @@ export default function Footer() {
                 <Link to="/" style={linkStyle}>SlayTurn</Link>
             </Logo>
             <Desc>
-                A Stark Industries Product.<br/>
+                A Stark Industries Product, Made by Sourabh Kothari.<br/> <br />
                 The Stark industries brings you the finest of all products, A legacy of Tony Stark
                 and team now maintained by Sourabh Kothari. Products are available on select stores that are franchises of Stark Industries
                 in select countries.
+                <br /> <br />
+                Like my work? Checkout my portfolio <a href="https://sourabhkothari.vercel.app/">here</a> 
             </Desc>
             <SocialContainer>
                 <SocialIcon color="3B5999">
