@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 
 const Container = styled.div`
   overflow: hidden;
@@ -130,6 +130,7 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -249,7 +250,13 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button onClick={handleClick}>ADD TO CART</Button>
+            {user.currentUser === null?(
+              <Link to="/login">
+                  <Button>ADD TO CART</Button>
+              </Link>
+            ):(
+              <Button onClick={handleClick}>ADD TO CART</Button>
+            )}
           </AddContainer>
         </InfoContainer>
       </Wrapper>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { mobile } from '../responsive'
 // import { Link } from `react-router-dom`
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const linkStyle = {
     
@@ -92,6 +93,7 @@ const Payment = styled.img`
 //   }
 // `
 export default function Footer() {
+    const user = useSelector((state) => state.user);
   return (
     <Container>
         <Left>
@@ -153,7 +155,11 @@ export default function Footer() {
                     <Link to="/login" style={linkStyle}>LOGIN</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/cart" style={linkStyle}>CART</Link>
+                    {user.currentUser === null?(
+                        <Link to="/login" style={linkStyle}>CART</Link>
+                    ):(
+                        <Link to="/cart" style={linkStyle}>CART</Link>
+                    )}
                 </ListItem>
             </List>
         </Center>

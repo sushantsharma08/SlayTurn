@@ -153,16 +153,31 @@ export default function Navbar() {
               <MenuItem onClick={handleLogOut}>LOG OUT</MenuItem>
             </>
           )}
-                <Link to="/cart" style={linkStyle}>
+                {user.currentUser === null ?(
+                  <Link to="/login" style={linkStyle}>
 
-                    <MenuItem>
+                  <MenuItem>
 
-                        <Badge badgeContent={quantity} color="primary">
-                            <ShoppingCartOutlined/>
-                        </Badge>
-                    </MenuItem>
-                
-                </Link>
+                      <Badge badgeContent={quantity} color="primary">
+                          <ShoppingCartOutlined/>
+                      </Badge>
+                      
+                  </MenuItem>
+                  </Link>
+                ):(
+                  <Link to="/cart" style={linkStyle}>
+
+                      <MenuItem>
+
+                          <Badge badgeContent={quantity} color="primary">
+                              <ShoppingCartOutlined/>
+                          </Badge>
+                          
+                      </MenuItem>
+                  
+                  </Link>
+                  
+                )}
             </Right>
 
         </Wrapper>

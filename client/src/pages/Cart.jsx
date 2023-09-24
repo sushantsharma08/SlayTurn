@@ -197,7 +197,7 @@ export default function Cart() {
     const cart = useSelector((state) => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
     const history = useNavigate()
-
+    
     const onToken = (token) => {
         setStripeToken(token);
       };
