@@ -72,6 +72,8 @@ const Language = styled.span`
 `;
 
 export default function Navbar() {
+    const cart = useSelector((state) => state.cart);
+
     const quantity = useSelector(state=>state.cart.quantity)
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
