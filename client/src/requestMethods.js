@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://slayturn-api.onrender.com/api/";
+const BASE_URL = "https://slayturn-api.onrender.com/api";
 // const TOKEN =
 //   JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser
 //     .accessToken || "";
