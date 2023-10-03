@@ -25,7 +25,7 @@ using JWT)
 
 
 ## Deployment:
-For Deployment, we have used `vercel` and `render` as a platform. 
+For Deployment, I have used `vercel` and `render` as a platform. 
 
 | Live Project |[`Click here`](https://slayturn.vercel.app/)| 
 
