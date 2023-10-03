@@ -91,20 +91,26 @@ export default function Slider() {
             <ArrowLeftOutlined />
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
-            {sliderItems.map((items)=>(
-                <Slide bg={items.bg} key={items.id}>
-                    <ImgContainer>
-                        <Link to="/products">
-                            <Image src={items.img} />
-                        </Link>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>{items.title}</Title>
-                        <Desc>{items.desc}</Desc>
-                        <Button>Shop now</Button>
-                    </InfoContainer>
-                </Slide>    
-            ))}
+            {sliderItems.map((items)=>{
+                return (
+
+                    <Slide bg={items.bg} key={items.id}>
+                        <ImgContainer>
+                            <Link to="/products">
+                                <Image src={items.img} />
+                            </Link>
+                        </ImgContainer>
+                        <InfoContainer>
+                            <Title>{items.title}</Title>
+                            <Desc>{items.desc}</Desc>
+                            {/* <Button>Shop now</Button> */}
+                            <Link to="/products">
+                                <Button>Shop Now</Button>
+                            </Link>
+                        </InfoContainer>
+                    </Slide>    
+                )
+            })}
         </Wrapper>
         <Arrow direction="right" onClick={()=>handleClick("right")}>
             <ArrowRightOutlined />

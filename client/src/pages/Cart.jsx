@@ -10,10 +10,15 @@ import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router";
 import { emptyCart } from "../redux/cartRedux";
-
+import { Link } from 'react-router-dom'
 const KEY = 'pk_test_51Nn3ejSIYmQACD5LLH3TZEb4ZccbPnZ3AyZly54VKdsOTwLT7J6dtvkTNqSrYh0ACcWc1n4sSUsOX8HQpfNTQcbl00zz2M4uxS'
 
-
+const linkStyle = {
+    
+    textDecoration: "none",
+    color: 'black'
+    
+  };
 const Container = styled.div`
     overflow: hidden;
 `
@@ -182,15 +187,15 @@ const Button = styled.button`
       background-color: rgb(10, 87, 87);
     }
 `
-const Link = styled.a`
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+// const Link = styled.a`
+//   color: black;
+//   text-decoration: none;
+//   cursor: pointer;
 
-  &:visited {
-    color: black;
-  }
-`;
+//   &:visited {
+//     color: black;
+//   }
+// `;
 
 
 export default function Cart() {
@@ -228,6 +233,8 @@ export default function Cart() {
         stripeToken && makeRequest();
       }, [stripeToken, cart.total, history]);
       console.log(stripeToken)
+    //   console.log(product)
+    console.log(cart)
     return (
         <Container>
             <Navbar />
@@ -250,20 +257,20 @@ export default function Cart() {
               <Product>
                 <ProductDetail>
                   {/* <Image src={product.img} /> */}
-                  <Link href={`/product/${product._id}`}>
+                  <Link to={`/product/${product.product_id}`}>
                       <Image src={product.img}></Image>
                     </Link>
                   <Details>
 
                     <ProductName>
-                        <Link href={`/product/${product._id}`}>
+                        <Link to={`/product/${product.product_id}`} style={linkStyle}>
                           <b>Product: </b>
                           {product.title}
                         </Link>
                     </ProductName>
 
                     <ProductId>
-                      <b>ID:</b> {product._id}
+                      <b>ID:</b> {product.product_id}
                     </ProductId>
 
                     <ProductColor color={product.color} />

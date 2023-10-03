@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logProcess } from "../redux/apiCalls";
 import { emptyCart } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Container = styled.div`
@@ -77,12 +77,14 @@ export default function Navbar() {
     const quantity = useSelector(state=>state.cart.quantity)
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
 
         handleLogOutData(cart.initial, cart.products, user);
         dispatch(emptyCart());
         logProcess(dispatch);
+        navigate("/");
       }
 
       const handleLogOutData = async(initial,pro,user) =>{
@@ -138,6 +140,7 @@ export default function Navbar() {
                 {/* <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>
                  */}
+                 <Link to="/" style={linkStyle}>HOME</Link>
                  {user.currentUser === null ? (
             <>
               <Link to="/login" style={linkStyle}>

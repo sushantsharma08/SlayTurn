@@ -7,6 +7,8 @@ import { login } from '../redux/apiCalls';
 import { useNavigate } from "react-router-dom";
 import NavbarLessPopulated from '../components/NavbarLessPopulated';
 import Announcement from '../components/Announcement';
+import { Link } from 'react-router-dom'
+
 
 const Container = styled.div`
     width: 100vw;
@@ -70,15 +72,7 @@ const Button = styled.button`
     }
 `
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 15px;
-  cursor: pointer;
-  &:hover{
-    text-decoration: underline;
-  }
 
-`
 const Error = styled.span`
   color: red;
 `;
@@ -128,7 +122,7 @@ export default function Login() {
           </Button>
           {error && <Error>Something went wrong...</Error>}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link href = "/register">CREATE A NEW ACCOUNT</Link>
+          <Link to = "/register">CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>
