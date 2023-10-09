@@ -89,8 +89,8 @@ export default function Register() {
     
         const res = await publicRequest.post("/auth/register", data);
         console.log(res.status);
-        // if (res.status === 201) window.location.replace("/login");
-        if(res.status === 201)  window.location = "/login"
+        if (res.status === 201) window.location.replace("https://slayturn-api.onrender.com/api/login");
+        // if(res.status === 201)  window.location = "/login"
       };
       
   return (
