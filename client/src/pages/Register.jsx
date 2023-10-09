@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { mobile } from '../responsive'
 import { publicRequest } from "../requestMethods";
 import NavbarLessPopulated from '../components/NavbarLessPopulated';
+import { useNavigate } from 'react-router-dom';
 // const CryptoJS = require("crypto-js");
 
 const Container = styled.div`
@@ -71,6 +72,7 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [c_password, setC_password] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -89,7 +91,8 @@ export default function Register() {
     
         const res = await publicRequest.post("/auth/register", data);
         console.log(res.status);
-        if (res.status === 201) window.location.replace("https://slayturn-api.onrender.com/api/login");
+        if (res.status === 201) 
+            navigate("/login");
         // if(res.status === 201)  window.location = "/login"
       };
       
