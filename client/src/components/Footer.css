@@ -1,0 +1,13 @@
+.test{
+    color: black;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    
+
+}
+.test:hover{
+    text-decoration: underline;
+    font-size: 18px;
+    transition-duration: 0.5s;
+    color: black;
+}

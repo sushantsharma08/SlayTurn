@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Success from "./pages/Success"
+import "./App.css"
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);

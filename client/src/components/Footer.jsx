@@ -5,6 +5,7 @@ import { mobile } from '../responsive'
 // import { Link } from `react-router-dom`
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import './Footer.css'
 
 const linkStyle = {
     
@@ -145,22 +146,22 @@ export default function Footer() {
             </List> */}
             <List>
                 <ListItem>
-                    <Link to="/" style={linkStyle}>HOME</Link>
+                    <Link className="test" to="/" >HOME</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/products" style={linkStyle}>PRODUCTS</Link>
+                    <Link to="/products" className="test">PRODUCTS</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/register" style={linkStyle}>REGISTER</Link>
+                    <Link to="/register" className="test">REGISTER</Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/login" style={linkStyle}>LOGIN</Link>
+                    <Link to="/login" className="test">LOGIN</Link>
                 </ListItem>
                 <ListItem>
                     {user.currentUser === null?(
-                        <Link to="/login" style={linkStyle}>CART</Link>
+                        <Link to="/login" className="test">CART</Link>
                     ):(
-                        <Link to="/cart" style={linkStyle}>CART</Link>
+                        <Link to="/cart" className="test">CART</Link>
                     )}
                 </ListItem>
             </List>

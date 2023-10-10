@@ -12,6 +12,13 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
     height: 60px;
+    position: sticky;
+    top:0px;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid rgb(196, 189, 189) ;
+    
+
     ${mobile({height:"50px" })}
 `;
 
